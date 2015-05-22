@@ -14,9 +14,7 @@ if (isServer) then {
 	stash4 setvariable ["robbed",false,true];
 };
 
-// Different depending on server
-tf_radio_channel_name = "ArmA 3 - Life RPG TFR";
-tf_radio_channel_password = "WirBenutzenTFR";
+
 
 enableSaving [false, false];
 

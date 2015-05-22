@@ -54,108 +54,30 @@ PublicvariableServer "A3L_Fnc_Request";
 waitUntil {(!isNil {A3L_fnc_dreDeta8})};
 
 
-_TFenabled = [] call TFAR_fnc_isTeamSpeakPluginEnabled;
-
-
-
-
-if (isNil "TFAR_fnc_isTeamSpeakPluginEnabled") exitwith {
-	
-	999999 cutText ["Task Force Radio is not running on your computer. Please re-sync and retry","BLACK FADED"];
-	999999 cutFadeOut 99999999;
-
-};
-
-if (!(_TFenabled)) then {
-
-	while {!([] call TFAR_fnc_isTeamSpeakPluginEnabled)} do {
-		
-		titleText ["Please enable Task Force Radio in your TS3 Plugins! || TS3 -> Settings -> Plugins", "BLACK"];
-		sleep 2;
-		
-	};
-};
 
 A3L_TFEnabled = true;
 A3L_onTsServer = "Altis-RPG.com | ArmA 3 Life" == (call TFAR_fnc_getTeamSpeakServerName);
 A3L_onChannel = "ArmA 3 - Life RPG TFR" == (call TFAR_fnc_getTeamSpeakChannelName);
-titleText ["Task Force Radio loaded succesfully","BLACK IN"];
-
-[] spawn {
-
-	while {true} do {
-	
-				_isadmin = false;
-				if (!(isNil "life_adminlevel")) then {
-					_adminlvl = life_adminlevel call BIS_fnc_parseNumber;
-					
-					if (_adminlvl > 0) then {
-						_isadmin = true;
-					};
-				};
-				
-				if (!(_isadmin)) then {
-				
-					_TFenabled = [] call TFAR_fnc_isTeamSpeakPluginEnabled;
-					if ((!(_TFenabled)) && (A3L_TFEnabled)) then {
-						titleText ["Bitte auf das TS kommen: 84.200.209.76 wir verwenden TFR", "BLACK"];
-						A3L_TFEnabled = false;
-					};
-					
-					_onTsServer = "Altis-RPG.com | ArmA 3 Life" == (call TFAR_fnc_getTeamSpeakServerName);
-					if (!(_onTsServer)) then {
-						titleText ["Bitte auf das TS kommen: 84.200.209.76 wir verwenden TFR", "BLACK"];
-						A3L_onTsServer = false;
-					} else {
-						if (!(A3L_onTsServer)) then {
-							titleText ["TS server check completed. Welcome!","BLACK IN"];
-							A3L_onTsServer = true;
-						};
-					};
-					
-					_onChannel = "ArmA 3 - Life RPG TFR" == (call TFAR_fnc_getTeamSpeakChannelName);
-					if (!(_onChannel)) then {
-						titleText ["Bitte auf das TS kommen: 84.200.209.76 wir verwenden TFR", "BLACK"];
-						A3L_onChannel = false;
-					} else {
-						if (!(A3L_onChannel)) then {
-							titleText ["TS channel check completed. Welcome!","BLACK IN"];
-							A3L_onChannel = true;
-						};
-					};
-					
-					
-					if ((_TFenabled) && (!(A3L_TFEnabled))) then {
-						titleText ["Plugin angeschaltet, welcome back!","BLACK IN"];
-						A3L_TFEnabled = true;
-					};
-				
-				};
-				
-				sleep 2;	
-			};
-
-};
 
 
 [] spawn {
 if (!isServer) then {
 
 	_admin = false;
-	while {true} do 
+	while {true} do
 		{
 		_admin = false;
-		if (!(isNil "life_adminlevel")) then 
+		if (!(isNil "life_adminlevel")) then
 		{
 			_admin = life_adminlevel call BIS_fnc_parseNumber;
-			if (_admin > 0) then 
+			if (_admin > 0) then
 			{
 				_admin = true;
 			};
 		};
-		
+
 		if (_admin) exitwith {};
-		
+
 		if (cameraOn == player && cameraView == "External") then
 			{
 				player switchCamera "Internal";
@@ -199,14 +121,14 @@ switch (playerSide) do
 		_handle = [] spawn life_fnc_initCop;
 		waitUntil {scriptDone _handle};
 	};
-	
+
 	case civilian:
 	{
 		//Initialize Civilian Settings
 		_handle = [] spawn life_fnc_initCiv;
 		waitUntil {scriptDone _handle};
 	};
-	
+
 	case independent:
 	{
 		//Initialize Medics and blah
