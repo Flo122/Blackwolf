@@ -332,7 +332,7 @@ class playerSettings {
 			w = 0 * safezoneW;
 			h = 0 * safezoneH;
 		};
-		
+		/*
 		class ButtonAdminMenu : Life_RscButtonSilent {
 			idc = 2021;
 			text = "$STR_PM_AdminMenu";
@@ -342,7 +342,7 @@ class playerSettings {
 			w = 0 * safezoneW;
 			h = 0 * safezoneH;
 		};
-		
+		*/
 		class ButtonSyncData : Life_RscButtonSilent {
 			idc = -1;
 			//shortcuts[] = {0x00050000 + 2};
