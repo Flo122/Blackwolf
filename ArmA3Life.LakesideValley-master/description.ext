@@ -49,36 +49,36 @@ class CfgSounds
 		sound[] = {"\sounds\Siren_Long.ogg", 1.0, 1};
 		titles[] = {};
 	};
-	
-	
-	
+
+
+
 	class medicalintro
 	{
 		name = "medicalintro";
 		sound[] = {"\sounds\medicalintro.ogg", 1.0, 1};
 		titles[] = {};
 	};
-	
+
 	class copintro
 	{
 		name = "copintro";
 		sound[] = {"\sounds\copintro.ogg", 1.0, 1};
 		titles[] = {};
 	};
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
 	class tazersound
 	{
 		name = "Tazersound";
 		sound[] = {"\sounds\tazer.ogg", 0.25, 1};
 		titles[] = {};
 	};
-	
+
 	class flashbang
 	{
 		name = "flashbang";
@@ -98,7 +98,7 @@ class CfgDebriefing
 		picture = "";
 		pictureColor[] = {0,0.3,0.6,1};
 	};
-	
+
 	class Blacklisted
 	{
 		title = "Mission Failed";
@@ -108,16 +108,7 @@ class CfgDebriefing
 		picture = "";
 		pictureColor[] = {0,0.3,0.6,1};
 	};
-	
-	class SpyGlass
-	{
-		title = "The SpyGlass sees you";
-		subTitle = "You were detected by the SpyGlass";
-		description = "You were detected for cheating and have been reported to the server. Enjoy your day.";
-		pictureBackground = "";
-		picture = "";
-		pictureColor[] = {0,0.3,0.6,1};
-	};
+
 };
 
 class CfgNotifications
@@ -130,7 +121,7 @@ class CfgNotifications
 		duration = 5;
 		priority = 7;
 	};
-	
+
 	class DeliveryAssigned
 	{
 		title = "Delivery Job Accepted";
@@ -139,7 +130,7 @@ class CfgNotifications
 		duration = 10;
 		priority = 7;
 	};
-	
+
 	class DeliveryFailed
 	{
 		title = "Delivery Job Failed";
@@ -148,7 +139,7 @@ class CfgNotifications
 		duration = 7;
 		priority = 7;
 	};
-	
+
 	class DeliverySucceeded
 	{
 		title = "Delivery Job Completed";
@@ -157,7 +148,7 @@ class CfgNotifications
 		duration = 6;
 		priority = 6;
 	};
-	
+
 	class TextMessage
 	{
 		title = "Received A Text Message";
@@ -166,7 +157,7 @@ class CfgNotifications
 		duration = 10;
 		priority = 6;
 	};
-	
+
 	class PoliceDispatch
 	{
 		title = "911 Dispatch Center";
@@ -175,7 +166,7 @@ class CfgNotifications
 		duration = 10;
 		priority = 6;
 	};
-	
+
 	class AdminDispatch
 	{
 		title = "Admin Dispatch Center";
@@ -184,7 +175,7 @@ class CfgNotifications
 		duration = 10;
 		priority = 6;
 	};
-	
+
 	class AdminMessage
 	{
 		title = "Admin Message";

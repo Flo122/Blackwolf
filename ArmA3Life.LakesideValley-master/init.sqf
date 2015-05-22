@@ -1,5 +1,5 @@
 // TFR Variables API
-tf_no_auto_long_range_radio = true; 
+tf_no_auto_long_range_radio = true;
 tf_west_radio_code = "_alliance";
 tf_east_radio_code = "_opfor";
 tf_guer_radio_code = "_alliance";
@@ -31,11 +31,8 @@ enableSaving[false,false];
 life_versionInfo = "ArmA 3 Life 0.3.0";
 [] execVM "briefing.sqf"; //Load Briefing
 [] execVM "KRON_Strings.sqf";
-[] execVM "AdminTool\loop.sqf";
 [] execVM "teargas.sqf";
 [] execVM "zlt_fastrope.sqf";
-[] execVM "hackerSpanker.sqf";
-[] execVM "hackerSpanker2.sqf";
 //[] execVM "welcomecredits.sqf";
 [] execVM "weather.sqf";
 //[] execVM "core\functions\fn_emptyFuel.sqf";

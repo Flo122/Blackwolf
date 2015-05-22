@@ -8,7 +8,7 @@
 	Parameter(s):
 	_this select 0: STRING - Packet variable name (always "life_fnc_MP_packet")
 	_this select 1: ARRAY - Packet value (sent by life_fnc_MP function; see it's description for more details)
-	
+
 	Returns:
 	BOOL - true if function was executed successfully
 */
@@ -26,34 +26,18 @@ _isCall =	[_varValue,5,false,[false]] call bis_fnc_param;
 _callerName = [_varValue,6,"",[""]] call bis_fnc_param;
 _callerUID = [_varValue,7,"",[""]] call bis_fnc_param;
 
+if(!(["life_fnc_",_functionName] call BIS_fnc_inString) && {!(["SPY_fnc_",_functionName] call BIS_fnc_inString)} && {!(["DB_fnc_",_functionName] call BIS_fnc_inString)} && {!(["TON_fnc_",_functionName] call BIS_fnc_inString)} &&
+{!(toLower(_functionName) in ["arma3log","bis_fnc_execvm","bis_fnc_effectkilledairdestruction","bis_fnc_effectkilledairdestructionstage2"])} && {!(["SOCK_fnc_",_functionName] call BIS_fnc_inString)}) exitWith {false};
+if(toLower(_functionName) == "db_fnc_asynccall") exitWith {false};
+if(toLower(_functionName) == "db_fnc_mresToArray") exitWith {false};
+
+if(_functionName == "bis_fnc_execvm") then {
+	_param2 = _params select 1;
+	if(isNil "_param2") exitWith {_exitScope = true;};
+	if(_param2 != "initPlayerServer.sqf") exitWith {_exitScope = true;};
 
 if(_callerName == "" OR _callerUID == "") exitWith {}; //NO.
 
-if(_callerUID != "__SERVER__" && _callerName != "__SERVER__" && toLower(_functionName) in ["spy_fnc_cookiejar","spy_fnc_notifyadmins"]) then {
-	//Check if the sender & reported UID match, if they don't exit.
-	if(toLower(_functionName) == "spy_fnc_cookiejar") exitWith {
-		private["_reportUID"];
-		_reportUID = _params select 1;
-		if(_reportUID != _callerUID) exitWith {
-			if(isServer && _mode == 0) then {
-				[_callerName,_callerUID,"false_reports_to_spyglass"] call SPY_fnc_cookieJar;
-				[[_callerName,"False reporting to SpyGlass (cheater)"],"SPY_fnc_notifyAdmins",true,false] spawn life_fnc_MP;
-			};
-			_exitScope = true;
-		};
-	};
-	//So it's not the cookiejar, let's check the admin notification and make sure the report matches.
-	private["_reportName"];
-	_reportName = _params select 0;
-	if(_callerName != _reportName) exitWith {
-		if(isServer && _mode == 0) then {
-			[_callerName,_callerUID,"false_reports_to_spyglass"] call SPY_fnc_cookieJar;
-			[[_callerName,"False reporting to SpyGlass (cheater)"],"SPY_fnc_notifyAdmins",true,false] spawn life_fnc_MP;
-		};
-		_exitScope = true;
-	};
-};
-	
 if(toLower(_functionName) == "bis_fnc_endmission") exitWith {false}; //Don't allow BIS_fnc_endMission to be passed.
 
 if(_exitScope) exitWith {false}; //Blah.
