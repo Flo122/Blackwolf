@@ -2,13 +2,11 @@
 /*
 	File: fn_initCop.sqf
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	Cop Initialization file.
 */
 
-// TFR Variables API
-tf_no_auto_long_range_radio = false; 
 
 
 private["_end"];
@@ -38,7 +36,7 @@ switch(__GETC__(life_coplevel)) do
 	case 6: {life_paycheck = life_paycheck + 6000;};
 	case 7: {life_paycheck = life_paycheck + 7000;};
 	case 8: {life_paycheck = life_paycheck + 8000;};
-	
+
 };
 
 

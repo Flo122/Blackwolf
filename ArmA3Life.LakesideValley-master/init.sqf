@@ -1,9 +1,4 @@
-// TFR Variables API
-tf_no_auto_long_range_radio = true;
-tf_west_radio_code = "_alliance";
-tf_east_radio_code = "_opfor";
-tf_guer_radio_code = "_alliance";
-tf_civ_radio_code = "_opfor";
+
 
 // Server SetVariables
 if (isServer) then {

@@ -2,13 +2,10 @@
 /*
 	File: fn_initMedic.sqf
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	Initializes the medic..
 */
-
-// TFR Variables API
-tf_no_auto_long_range_radio = false; 
 
 
 private["_end"];
@@ -31,8 +28,8 @@ switch(__GETC__(life_mediclevel)) do
 	case 3: {life_paycheck = life_paycheck + 3000;};
 	case 4: {life_paycheck = life_paycheck + 4000;};
 	case 5: {life_paycheck = life_paycheck + 5000;};
-	
-	
+
+
 };
 
 

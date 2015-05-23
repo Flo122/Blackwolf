@@ -1,13 +1,11 @@
 /*
 	File: fn_initCiv.sqf
 	Author: Bryan "Tonic" Boardwine
-	
+
 	Description:
 	Initializes the civilian.
 */
 
-// TFR Variables API
-tf_no_auto_long_range_radio = true; 
 
 private["_spawnPos"];
 // civ_spawn_1 = nearestObjects[getMarkerPos  "civ_spawn_1", ["Land_i_Shop_01_V1_F","Land_i_Shop_02_V1_F","Land_i_Shop_03_V1_F","Land_i_Stone_HouseBig_V1_F"],250];
@@ -41,14 +39,14 @@ if(life_job == 99) then {
 	{
 		while {true} do
 		{
-			
+
 			switch ((uniform player)) do {
 						case "U_Rangemaster": {  player setObjectTextureGlobal [0,"textures\clothing\adac_uniform.paa"];
 												if(backpack player != "") then { (unitBackpack player) setObjectTextureGlobal [0,""];};
-												sleep 5;}; 
+												sleep 5;};
 						default { sleep 30;};
 			};
-			
+
 
 		};
 	};
